@@ -468,5 +468,11 @@
 	},
 	"installConfig": {
 		"hoistingLimits": "workspaces"
+	},
+	"rocketchat": {
+		"minimumClientVersions": {
+			"desktop": "3.9.6",
+			"mobile": "4.39.0"
+		}
 	}
 }
