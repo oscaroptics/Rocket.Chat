@@ -11,6 +11,7 @@ test.describe('Private Apps', () => {
 	test.beforeEach(async ({ page, request }) => {
 		await page.goto(`/home`);
 		await goToMarketplace(page);
+		await page.waitForURL('**/api/apps/marketplace/**');
 		await uninstallAppAPI(request, fixtures.appIdregression);
 	});
 
