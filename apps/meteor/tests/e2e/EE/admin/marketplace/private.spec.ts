@@ -9,7 +9,7 @@ test.use({ storageState: Users.admin.state });
 
 test.describe('Private Apps', () => {
 	test.beforeEach(async ({ page, request }) => {
-		await page.goto(`${process.env.URL}`);
+		await page.goto(`/home`);
 		await goToMarketplace(page);
 		await uninstallAppAPI(request, fixtures.appIdregression);
 	});
