@@ -1,14 +1,16 @@
 import { expect } from '@playwright/test';
 
+import { IS_EE } from '../../../config/constants';
 import fixtures from '../../../fixtures/marketplace.json';
 import { Users } from '../../../fixtures/userStates';
 import locator from '../../../locators/marketplace.json';
 import { goToMarketplace, installPrivateApp, searchAppPrivate } from '../../../support/marketplace/marketplace';
 import { test } from '../../../utils/test';
 
-test.use({ storageState: Users.admin.state });
-
 test.describe('Private Apps', () => {
+	test.skip(!IS_EE, 'Enterprise Only');
+	test.use({ storageState: Users.admin.state });
+
 	test.beforeEach(async ({ page }) => {
 		await page.goto(`/home`);
 		const req = page.waitForResponse(/api\/apps\/marketplace/);
