@@ -33,7 +33,7 @@ test.describe('Private Apps', () => {
 		await installPrivateApp(page, fixtures.pathregression);
 		await searchAppPrivate(page, locator.text.regression);
 
-		page
+		await page
 			.getByRole('link', { name: `${locator.text.regression}` })
 			.getByTestId(locator.testId.menuSingleApp)
 			.click();
@@ -51,7 +51,7 @@ test.describe('Private Apps', () => {
 		await searchAppPrivate(page, locator.text.regression);
 		await page.getByRole('link').filter({ hasText: locator.text.regression }).click();
 
-		page
+		await page
 			.getByRole('link', { name: `${locator.text.regression}` })
 			.getByTestId(locator.testId.menuSingleApp)
 			.click();
